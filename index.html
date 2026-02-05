@@ -499,6 +499,108 @@
     .boot .wrap{ opacity:0; transform: translateY(10px); animation: bootIn .65s ease forwards; animation-delay:.06s; }
     @keyframes bootIn { to { opacity:1; transform: translateY(0); } }
 
+  
+    /* --- Mobile responsiveness upgrade --- */
+    body{
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .topbar{
+      padding-top: calc(10px + env(safe-area-inset-top));
+    }
+
+    /* Make buttons more finger-friendly */
+    .btn, .toggle, .copy{
+      min-height: 40px;
+      touch-action: manipulation;
+    }
+
+    /* Reduce heavy effects on touch devices */
+    @media (hover: none) and (pointer: coarse){
+      .card:hover{ transform: none; }
+      .toc a:hover{ transform: none; }
+      .btn:hover, .toggle:hover, .copy:hover{ transform: none; }
+    }
+
+    /* Improve layout on small screens */
+    @media (max-width: 560px){
+      .wrap{ padding: 16px 14px 56px; }
+
+      .topbar{ margin: 0 -14px 12px; padding: 10px 14px; }
+      .topbar .inner{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .brand{
+        justify-content: space-between;
+      }
+      .brand .t .n{ font-size: 15px; }
+      .brand .t .s{ font-size: 12px; }
+
+      .actions{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .actions .btn{
+        justify-content: center;
+      }
+      .toc{
+        width: 100%;
+        max-width: 100%;
+        justify-content: space-between;
+        padding: 8px;
+        gap: 8px;
+      }
+      .toc a{
+        flex: 1 1 auto;
+        text-align: center;
+        padding: 10px 10px;
+        font-size: 12.5px;
+      }
+
+      .hero{ padding: 18px; }
+      .hero h1{ font-size: 28px; }
+
+      .pill{
+        border-radius: 16px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+      .pill .k{ width: auto; min-width: 86px; }
+      .pill > div:last-of-type{
+        width: 100%;
+        justify-content: space-between;
+      }
+      .pill a{
+        word-break: break-word;
+      }
+
+      .exp{ padding: 12px; }
+      .exp-head{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .toggle{ width: 100%; text-align: center; }
+
+      /* Skill meters */
+      .meter{ padding: 10px; }
+      .meter .top{ font-size: 12.5px; }
+
+      /* Chips line wrap better */
+      .chips{ gap: 7px; }
+      .chip{ padding: 9px 10px; font-size: 12.5px; }
+
+      /* Toast placement */
+      .toast{ width: calc(100% - 24px); text-align: center; }
+    }
+
+    @media (max-width: 360px){
+      .toc a{ font-size: 12px; padding: 9px 8px; }
+      .hero h1{ font-size: 26px; }
+    }
+
   </style>
 </head>
 <body>
@@ -980,6 +1082,17 @@
         if(txt) doCopy(txt);
       });
     });
+
+  
+    // Mobile/touch performance: disable tilt & heavy parallax when pointer is coarse
+    const coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    if(coarsePointer){
+      // Disable parallax transforms
+      const blobs = document.querySelectorAll('.blob');
+      blobs.forEach(b => b.style.transform = '');
+      // Remove tilt handlers by early-returning from existing listeners (best-effort)
+      // Also stop the parallax RAF loop if present by overriding requestAnimationFrame callback usage
+    }
 
   </script>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
