@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV — Sébastien CANGEMI</title>
+  <meta name="description" content="CV — Sébastien CANGEMI | Sécurité incendie, formation, numérique (Bachelor Game Design en cours)" />
+  <style>
+    :root {
+      --bg0:#07080c;
+      --bg1:#0b0f1a;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.035);
+      --text:#eef0f4;
+      --muted:#b9c0cf;
+      --line: rgba(255,255,255,.12);
+      --accent:#8bd5ff;
+      --accent2:#b7ffcf;
+      --accent3:#b39cff;
+      --shadow: 0 18px 60px rgba(0,0,0,.50);
+      --radius: 20px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    *{box-sizing:border-box}
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color: var(--text);
+      background: radial-gradient(1200px 900px at 20% -10%, rgba(139,213,255,.16), transparent 55%),
+                  radial-gradient(900px 700px at 80% 0%, rgba(179,156,255,.12), transparent 52%),
+                  radial-gradient(900px 800px at 50% 110%, rgba(183,255,207,.10), transparent 55%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x: hidden;
+    }
+    a{color: var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Animated background blobs */
+    .blob {
+      position: fixed;
+      inset: auto;
+      width: 520px;
+      height: 520px;
+      filter: blur(50px);
+      opacity: .55;
+      pointer-events: none;
+      transform: translate3d(0,0,0);
+      z-index: 0;
+      mix-blend-mode: screen;
+    }
+    .b1 { top: -160px; left: -120px; background: radial-gradient(circle at 30% 30%, rgba(139,213,255,.95), transparent 60%); animation: float1 16s ease-in-out infinite; }
+    .b2 { top: 40px; right: -200px; background: radial-gradient(circle at 35% 35%, rgba(179,156,255,.90), transparent 62%); animation: float2 18s ease-in-out infinite; }
+    .b3 { bottom: -240px; left: 30%; background: radial-gradient(circle at 35% 35%, rgba(183,255,207,.80), transparent 62%); animation: float3 20s ease-in-out infinite; }
+
+    @keyframes float1 { 0%,100%{transform: translate(0,0) scale(1)} 50%{transform: translate(60px, 40px) scale(1.07)} }
+    @keyframes float2 { 0%,100%{transform: translate(0,0) scale(1)} 50%{transform: translate(-50px, 70px) scale(1.05)} }
+    @keyframes float3 { 0%,100%{transform: translate(0,0) scale(1)} 50%{transform: translate(40px, -40px) scale(1.06)} }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 26px 18px 64px;
+    }
+
+    /* Top bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin: 0 -18px 16px;
+      padding: 10px 18px;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(7,8,12,.85), rgba(7,8,12,.55));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar .inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand {
+      display:flex; align-items:center; gap:10px;
+    }
+    .mark {
+      width: 38px; height: 38px; border-radius: 14px;
+      background: radial-gradient(circle at 30% 30%, var(--accent2), var(--accent));
+      box-shadow: 0 0 0 6px rgba(139,213,255,.08);
+    }
+    .brand .t {
+      display:flex; flex-direction:column; line-height:1.1;
+    }
+    .brand .t .n { font-weight: 760; letter-spacing: .2px; }
+    .brand .t .s { color: var(--muted); font-size: 13px; }
+
+    .actions {
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .actions{
+      align-items:center;
+    }
+    .actions .toc{
+      margin-left: 6px;
+    }
+    @media (max-width: 980px){
+      .toc{ max-width: 100%; }
+    }
+
+    .btn {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      display:flex; align-items:center; gap:8px;
+      user-select: none;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(139,213,255,.35); background: rgba(255,255,255,.09); }
+    .btn .kbd { font-family: var(--mono); font-size: 11px; padding: 3px 6px; border-radius: 8px; border: 1px solid rgba(255,255,255,.12); color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 16px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .hero {
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero:after {
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background: radial-gradient(600px 260px at 20% 10%, rgba(139,213,255,.20), transparent 60%),
+                  radial-gradient(600px 260px at 90% 0%, rgba(179,156,255,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 36px;
+      letter-spacing: .25px;
+    }
+    .hero .tag {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .meta {
+      margin-top: 14px;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .meta b { color: var(--text); font-weight: 680; }
+
+    .pills {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .pill {
+      display:flex; gap:10px; align-items:center;
+      padding: 11px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.10);
+    }
+    .pill .k { width: 86px; color: var(--text); font-weight: 700; }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    li { margin: 7px 0; }
+
+    /* Experience cards */
+    .timeline {
+      position: relative;
+      margin-top: 12px;
+      padding-left: 14px;
+    }
+    .timeline:before {
+      content:"";
+      position:absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(var(--accent), transparent);
+      opacity: .60;
+    }
+    .exp {
+      position: relative;
+      padding: 14px;
+      margin: 14px 0;
+      overflow: hidden;
+    }
+    .exp .dot {
+      position: absolute;
+      left: -16px;
+      top: 22px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--accent2), var(--accent));
+      box-shadow: 0 0 0 3px rgba(139,213,255,.12);
+    }
+    .exp-head {
+      display:flex;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .role {
+      font-weight: 760;
+      font-size: 15px;
+    }
+    .org {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .period {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .toggle {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding: 9px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      white-space: nowrap;
+    }
+    .toggle:hover { transform: translateY(-1px); border-color: rgba(139,213,255,.35); background: rgba(255,255,255,.09); }
+
+    .exp-body {
+      margin-top: 12px;
+      border-top: 1px dashed rgba(255,255,255,.14);
+      padding-top: 12px;
+      color: var(--muted);
+      animation: drop .22s ease;
+    }
+    @keyframes drop { from { opacity:0; transform: translateY(-6px); } to { opacity:1; transform: translateY(0); } }
+    .subrole + .subrole { margin-top: 12px; }
+    .subhead { display:flex; flex-wrap:wrap; gap: 8px 10px; align-items: baseline; justify-content: space-between; }
+    .sr-title { color: var(--text); font-weight: 720; font-size: 14px; }
+    .sr-period { color: var(--muted); font-size: 13px; }
+    .bullets { margin-top: 8px; }
+
+    /* Skill meters */
+    .meters { display:grid; gap: 10px; margin-top: 12px; }
+    .meter {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.12);
+      border-radius: 14px;
+      padding: 10px 10px;
+    }
+    .meter .top {
+      display:flex; justify-content:space-between; gap:10px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .meter .top b { color: var(--text); font-weight: 720; }
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      overflow: hidden;
+    }
+    .fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 1.2s cubic-bezier(.2,.8,.2,1);
+    }
+
+    /* Chips */
+    .chips { display:flex; flex-wrap:wrap; gap: 8px; margin-top: 12px; }
+    .chip {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      background: rgba(0,0,0,.10);
+      font-size: 13px;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .chip:hover { transform: translateY(-2px); border-color: rgba(139,213,255,.35); }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(10px); }
+    .reveal.on { opacity: 1; transform: translateY(0); transition: opacity .55s ease, transform .55s ease; transition-delay: var(--d, .0s); }
+
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .pill .k { width: 78px; }
+      .hero h1 { font-size: 32px; }
+    }
+
+    @media print {
+      .topbar, .blob { display:none !important; }
+      body { background:#fff; color:#111; }
+      .card { box-shadow:none; border-color:#ddd; }
+      a { color:#000; text-decoration: underline; }
+    }
+  
+    [data-theme="light"]{
+      --bg0:#ffffff;
+      --bg1:#f6f7fb;
+      --card: rgba(0,0,0,.04);
+      --card2: rgba(0,0,0,.02);
+      --text:#0f1220;
+      --muted:#3a4258;
+      --line: rgba(0,0,0,.10);
+      --shadow: 0 18px 60px rgba(0,0,0,.12);
+      --accent:#0077ff;
+      --accent2:#00b37e;
+      --accent3:#6b4eff;
+    }
+    [data-theme="light"] body{
+      background: radial-gradient(1200px 900px at 20% -10%, rgba(0,119,255,.12), transparent 55%),
+                  radial-gradient(900px 700px at 80% 0%, rgba(107,78,255,.10), transparent 52%),
+                  radial-gradient(900px 800px at 50% 110%, rgba(0,179,126,.08), transparent 55%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+
+    .toc{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.10);
+      overflow-x:auto;
+      max-width: 520px;
+    }
+    [data-theme="light"] .toc{
+      border-color: rgba(0,0,0,.10);
+      background: rgba(255,255,255,.55);
+    }
+    .toc a{
+      color: var(--muted);
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease, color .18s ease;
+    }
+    .toc a:hover{
+      transform: translateY(-1px);
+      border-color: rgba(139,213,255,.30);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      text-decoration:none;
+    }
+    [data-theme="light"] .toc a:hover{
+      border-color: rgba(0,119,255,.22);
+      background: rgba(0,0,0,.03);
+    }
+
+    /* Micro-interactions */
+    .card{
+      will-change: transform;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(139,213,255,.26);
+    }
+    [data-theme="light"] .card:hover{
+      border-color: rgba(0,119,255,.20);
+    }
+
+    /* Anchor offset for sticky topbar */
+    h2[id]{
+      scroll-margin-top: 90px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .blob{ display:none !important; }
+    }
+
+  
+    /* Copy button */
+    .pill{
+      position: relative;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .pill > div:last-of-type{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .copy{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      flex: 0 0 auto;
+      user-select:none;
+    }
+    .copy:hover{
+      transform: translateY(-1px);
+      border-color: rgba(139,213,255,.35);
+      background: rgba(255,255,255,.09);
+    }
+    [data-theme="light"] .copy{
+      border-color: rgba(0,0,0,.12);
+      background: rgba(255,255,255,.75);
+      color: var(--text);
+    }
+    [data-theme="light"] .copy:hover{
+      border-color: rgba(0,119,255,.28);
+      background: rgba(255,255,255,.92);
+    }
+
+    /* Toast */
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(12px);
+      opacity: 0;
+      background: rgba(0,0,0,.55);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      z-index: 999;
+      pointer-events:none;
+      transition: opacity .22s ease, transform .22s ease;
+      font-size: 13px;
+    }
+    [data-theme="light"] .toast{
+      background: rgba(255,255,255,.80);
+      border-color: rgba(0,0,0,.10);
+    }
+    .toast.on{
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Opening animation */
+    .boot .topbar{ opacity:0; transform: translateY(-6px); animation: bootIn .55s ease forwards; }
+    .boot .wrap{ opacity:0; transform: translateY(10px); animation: bootIn .65s ease forwards; animation-delay:.06s; }
+    @keyframes bootIn { to { opacity:1; transform: translateY(0); } }
+
+  
+/* === PHOTO HERO HALO === */
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.hero-photo-wrap{
+  position:relative;
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  flex:0 0 auto;
+  transition:.25s ease;
+}
+.hero-photo-wrap::before{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle,#8bd5ff66,transparent 60%),
+    radial-gradient(circle,#b39cff55,transparent 65%);
+  filter:blur(18px);
+  opacity:.9;
+}
+.hero-photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.18);
+  position:relative;
+  z-index:1;
+}
+.hero-photo-wrap:hover{
+  transform:translateY(-4px) scale(1.03);
+}
+@media (max-width:700px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+  .hero-photo-wrap{
+    width:150px;
+    height:150px;
+  }
+}
+
+</style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <div class="mark"></div>
+        <div class="t">
+          <div class="n">Sébastien CANGEMI</div>
+          <div class="s">CV interactif — Sécurité incendie • Formation • Numérique</div>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="mailto:sebastien.cangemi@orange.fr" title="Écrire (mail perso)">✉️ Mail</a>
+        <a class="btn" href="https://1drv.ms/f/c/932e98394ee24565/IgBlhEBqVvvNTrEOw86EtSXqAanqcxpTVcceYDNdtJwUTdE?e=KVAfvb" target="_blank" rel="noopener" title="Ouvrir le portfolio/LinkedIn">🔗 Portfolio</a>
+        <button class="btn" id="printBtn" title="Imprimer / Export PDF">🖨️ Imprimer <span class="kbd">Ctrl+P</span></button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="grid">
+      <div class="card hero reveal" style="--d:.02s">
+  <div class="hero-text">
+    <h1>Sébastien CANGEMI</h1>
+    <div class="tag">Sécurité incendie • Formation • Numérique (Bachelor en conception de jeux vidéo en cours)</div>
+    <div class="meta">
+      <div><b>Adresse</b> : 5 Rue du Professeur Gaston DUPOUY • 31100 TOULOUSE</div>
+      <div><b>Date de naissance</b> : 08-Février-1983</div>
+    </div>
+  </div>
+
+  <div class="hero-photo-wrap">
+    <img src="profile.png" class="hero-photo" alt="Photo Sébastien Cangemi">
+  </div>
+</div>
+        <div class="meta">
+          <div><b>Adresse</b> : 5 Rue du Professeur Gaston DUPOUY • 31100 TOULOUSE</div>
+          <div><b>Date de naissance</b> : 08-Février-1983</div>
+        </div>
+      </div>
+
+      <aside class="card reveal" style="--d:.06s">
+        <h2 id="coordonnees">Coordonnées</h2>
+        <div class="pills">
+          <div class="pill"><div class="k">Mobile</div><div>06.28.27.65.92</div></div><button class="copy" data-copy="06.28.27.65.92" aria-label="Copier mobile" title="Copier">📋</button></div>
+          <div class="pill"><div class="k">Mail perso</div><div><a href="mailto:sebastien.cangemi@orange.fr">sebastien.cangemi@orange.fr</a></div></div><button class="copy" data-copy="sebastien.cangemi@orange.fr" aria-label="Copier mail perso" title="Copier">📋</button></div>
+          <div class="pill"><div class="k">Mail pro</div><div><a href="mailto:sebastien.cangemi@falck.com">sebastien.cangemi@falck.com</a></div></div><button class="copy" data-copy="sebastien.cangemi@falck.com" aria-label="Copier mail pro" title="Copier">📋</button></div>
+        </div>
+
+        <div style="margin-top:14px">
+          <h2>Compétences professionnelles</h2>
+          <div class="meters">
+            
+              <div class="meter">
+                <div class="top"><b>Lutte contre les incendies &amp; Secours à personne</b><span>92%</span></div>
+                <div class="bar"><div class="fill" data-fill="92"></div></div>
+              </div>
+            
+              <div class="meter">
+                <div class="top"><b>Formation</b><span>88%</span></div>
+                <div class="bar"><div class="fill" data-fill="88"></div></div>
+              </div>
+            
+              <div class="meter">
+                <div class="top"><b>Informatique (exploitation et conception)</b><span>78%</span></div>
+                <div class="bar"><div class="fill" data-fill="78"></div></div>
+              </div>
+            
+              <div class="meter">
+                <div class="top"><b>Développement Web</b><span>72%</span></div>
+                <div class="bar"><div class="fill" data-fill="72"></div></div>
+              </div>
+            
+              <div class="meter">
+                <div class="top"><b>Codage</b><span>70%</span></div>
+                <div class="bar"><div class="fill" data-fill="70">
+        <button class="btn" id="themeBtn" title="Basculer thème">🌓 Thème</button>
+
+        
+      <nav class="toc" aria-label="Sommaire">
+        <a href="#coordonnees">Coordonnées</a>
+        <a href="#experience">Expérience</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#formation">Formation</a>
+      </nav>
+</div></div>
+              </div>
+            
+          </div>
+        </div>
+
+        <div class="section" style="margin-top:16px">
+          <h2>Permis & habilitations</h2>
+          <div class="chips">
+            <div class="chip">Permis B – C – Bateau eau intérieure</div><div class="chip">CACES Nacelles</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid" style="margin-top:16px">
+      <section class="card reveal" style="--d:.08s">
+        <h2 id="experience">Expérience professionnelle</h2>
+        <ul>
+          <li>Développement et mise en œuvre de programmes de formation incendie.</li><li>Conduite de sessions de formation pour les nouveaux employés et les équipes en place.</li><li>Évaluation des besoins en formation et adaptation des contenus pédagogiques.</li>
+        </ul>
+
+        <div style="margin-top:16px">
+          <h2 id="parcours">Parcours</h2>
+          <div class="timeline">
+            
+      <article class="exp card reveal" style="--d:0.06s">
+        <div class="dot"></div>
+        <header class="exp-head">
+          <div class="left">
+            <div class="role">Secrétaire CSE <span class="org">(Falck France)</span></div>
+            <div class="period">Septembre 2023 à ce jour</div>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-label="Afficher les détails">Détails</button>
+        </header>
+        <div class="exp-body" hidden>
+          
+          <ul class="bullets">
+            <li>Responsable de la tenue des registres et documents officiels du CSE.</li><li>Facilitation de la communication entre les membres du CSE et la direction.</li><li>Organisation et coordination des réunions et événements du CSE.</li>
+          </ul>
+        
+        </div>
+      </article>
+    
+      <article class="exp card reveal" style="--d:0.12s">
+        <div class="dot"></div>
+        <header class="exp-head">
+          <div class="left">
+            <div class="role">EIII Sécurité Privée — Airbus site AFUL <span class="org">(Falck France)</span></div>
+            <div class="period">2021 à ce jour</div>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-label="Afficher les détails">Détails</button>
+        </header>
+        <div class="exp-body" hidden>
+          
+              <div class="subrole">
+                <div class="subhead">
+                  <div class="sr-title">Adjoint responsable intervention</div>
+                  <div class="sr-period">Octobre 2021 – Février 2023</div>
+                </div>
+                <ul class="bullets">
+                  <li>Assister le responsable d'intervention dans la planification et l'exécution des opérations.</li><li>Création de supports de formation et d'outils pédagogiques.</li><li>Mise en place de documents et fichiers informatiques d'aide à la gestion de la formation et de gestion d'équipe.</li>
+                </ul>
+              </div>
+            
+
+              <div class="subrole">
+                <div class="subhead">
+                  <div class="sr-title">Responsable d’intervention par intérim</div>
+                  <div class="sr-period">Février 2023 – Février 2024</div>
+                </div>
+                <ul class="bullets">
+                  <li>Superviser les équipes sur le terrain et assurer le respect des protocoles de sécurité.</li><li>Participer à la formation et au développement des compétences de l'équipe.</li><li>Diriger les activités d'intervention, prendre des décisions critiques en temps réel.</li><li>Évaluer les risques et ajuster les stratégies d'intervention en conséquence.</li><li>Gérer les ressources et le personnel, assurer la préparation et l'équipement des équipes.</li>
+                </ul>
+              </div>
+            
+        </div>
+      </article>
+    
+      <article class="exp card reveal" style="--d:0.18s">
+        <div class="dot"></div>
+        <header class="exp-head">
+          <div class="left">
+            <div class="role">EIII Sécurité Privée — Airbus site AFUL <span class="org">(Securitas)</span></div>
+            <div class="period">2018 à 2021</div>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-label="Afficher les détails">Détails</button>
+        </header>
+        <div class="exp-body" hidden>
+          
+          <ul class="bullets">
+            <li>CQPAPS - SSIAP 1 - SSIAP 2</li><li>Formateur incendie aéronautique</li>
+          </ul>
+        
+        </div>
+      </article>
+    
+      <article class="exp card reveal" style="--d:0.24s">
+        <div class="dot"></div>
+        <header class="exp-head">
+          <div class="left">
+            <div class="role">ASI Sécurité Privée — Airbus site Saint Martin <span class="org">(Prosegur)</span></div>
+            <div class="period">2016 à 2018</div>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-label="Afficher les détails">Détails</button>
+        </header>
+        <div class="exp-body" hidden>
+          
+          <ul class="bullets">
+            <li>CQPAPS - SSIAP 1</li>
+          </ul>
+        
+        </div>
+      </article>
+    
+      <article class="exp card reveal" style="--d:0.30s">
+        <div class="dot"></div>
+        <header class="exp-head">
+          <div class="left">
+            <div class="role">Pompier volontaire — Commune de Sainte Livrade/Lot (47) <span class="org"></span></div>
+            <div class="period">2006 à 2023</div>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-label="Afficher les détails">Détails</button>
+        </header>
+        <div class="exp-body" hidden>
+          
+          <ul class="bullets">
+            <li>Conducteur VSAB - Conducteur d’engin pompe COD1-2 - Équipier VSAB - chef d'agrès VSAB - chef d'agrès tout engin - FDF1 – FDF2</li>
+          </ul>
+        
+        </div>
+      </article>
+    
+      <article class="exp card reveal" style="--d:0.36s">
+        <div class="dot"></div>
+        <header class="exp-head">
+          <div class="left">
+            <div class="role">Pompier volontaire — Commune d’Orange (84) <span class="org"></span></div>
+            <div class="period">2001 à 2016</div>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-label="Afficher les détails">Détails</button>
+        </header>
+        <div class="exp-body" hidden>
+          
+          <ul class="bullets">
+            <li>Conducteur VSAB - Conducteur d’engin pompe COD1-2 - Équipier VSAB - chef d'agrès VSAB - chef d'agrès tout engin - FDF1 – FDF2 – GRIMP</li>
+          </ul>
+        
+        </div>
+      </article>
+    
+      <article class="exp card reveal" style="--d:0.42s">
+        <div class="dot"></div>
+        <header class="exp-head">
+          <div class="left">
+            <div class="role">Pompier de l’air — Base Aérienne 115 d’Orange (84) <span class="org"></span></div>
+            <div class="period">2001 à 2016</div>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-label="Afficher les détails">Détails</button>
+        </header>
+        <div class="exp-body" hidden>
+          
+          <ul class="bullets">
+            <li>Régulation des appels d’urgence - Conducteur VSAB - Conducteur d’engin pompe Urbain et Aéronautique - Équipier VSAB, INC, VIRP, VMA - chef d'agrès VSAB - chef d'agrès INC - chef d'agrès VIRP - chef d'agrès VMA - Formateur SSLIA – Adjoint responsable service formation</li>
+          </ul>
+        
+        </div>
+      </article>
+    
+      <article class="exp card reveal" style="--d:0.48s">
+        <div class="dot"></div>
+        <header class="exp-head">
+          <div class="left">
+            <div class="role">Régiment de Marine — Bataillon des Marins Pompiers de Marseille (13) <span class="org"></span></div>
+            <div class="period">2000 à 2001</div>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-label="Afficher les détails">Détails</button>
+        </header>
+        <div class="exp-body" hidden>
+          
+          <ul class="bullets">
+            <li>Conducteur VSAB - Équipier VSAB - chef d'agrès VSAB - Équipier incendie - Équipier FDF - chef d'agrès INC - chef d'agrès FDF</li>
+          </ul>
+        
+        </div>
+      </article>
+    
+      <article class="exp card reveal" style="--d:0.54s">
+        <div class="dot"></div>
+        <header class="exp-head">
+          <div class="left">
+            <div class="role">JSP et Pompier volontaire — Commune d’Aubagne (13) <span class="org"></span></div>
+            <div class="period">1995 à 2001</div>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-label="Afficher les détails">Détails</button>
+        </header>
+        <div class="exp-body" hidden>
+          
+          <ul class="bullets">
+            <li>Équipier VSAB - Équipier FDF1 et INC1</li>
+          </ul>
+        
+        </div>
+      </article>
+    
+      <article class="exp card reveal" style="--d:0.60s">
+        <div class="dot"></div>
+        <header class="exp-head">
+          <div class="left">
+            <div class="role">Ouvrier — Le Palais de l’Onde <span class="org"></span></div>
+            <div class="period">1997 à 1999</div>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-label="Afficher les détails">Détails</button>
+        </header>
+        <div class="exp-body" hidden>
+          
+          <ul class="bullets">
+            <li>Technicien de maintenance électronique - Vente et conseil de matériel électronique (composants, kits de montage électronique, matériel HIFI et informatique) – SAV</li>
+          </ul>
+        
+        </div>
+      </article>
+    
+          </div>
+        </div>
+      </section>
+
+      <aside class="card reveal" style="--d:.10s">
+        <h2 id="formation">Formation professionnelle et académique</h2>
+        <ul>
+          <li>Bachelor en conception de jeux vidéo (en cours)</li><li>BTS SIO (Services informatiques aux organisations)</li><li>SSLIA</li><li>SSIAP 1 – SSIAP 2</li><li>CQPAPS</li><li>Bac Système Electronique et Numérique</li><li>Bac Pro Aménagement paysager</li><li>CAP Electronique</li>
+        </ul>
+
+        <div style="margin-top:16px">
+          <h2>Loisirs & centres d’intérêt</h2>
+          <div class="chips">
+            <div class="chip">Pompier volontaire</div><div class="chip">Informatique &amp; Haute Technologie</div><div class="chip">Sport, nature &amp; jardinage</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('on');
+      });
+    }, { threshold: .08 });
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Expand/collapse experience details
+    document.querySelectorAll('.exp').forEach(card=>{
+      const btn = card.querySelector('.toggle');
+      const body = card.querySelector('.exp-body');
+      btn.addEventListener('click', ()=>{
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        btn.textContent = open ? 'Détails' : 'Réduire';
+        body.hidden = open;
+      });
+    });
+
+    // Animate skill meters when visible
+    const mio = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting) return;
+        e.target.querySelectorAll('.fill').forEach(f=>{
+          const v = f.getAttribute('data-fill') || '0';
+          f.style.width = v + '%';
+        });
+        mio.unobserve(e.target);
+      });
+    }, { threshold: .25 });
+    document.querySelectorAll('.meters').forEach(m=>mio.observe(m));
+
+    // Print button
+    document.getElementById('printBtn')?.addEventListener('click', ()=>window.print());
+  
+    // Theme toggle (persisted)
+    const root = document.documentElement;
+    const saved = localStorage.getItem('cv_theme');
+    if(saved){ root.setAttribute('data-theme', saved); }
+    const themeBtn = document.getElementById('themeBtn');
+    themeBtn?.addEventListener('click', ()=>{
+      const current = root.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('cv_theme', next);
+    });
+
+    // Smooth scroll for TOC
+    document.querySelectorAll('.toc a').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href') || '';
+        if(href.startsWith('#')){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          el?.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // Active section highlight
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+    const sectionIds = tocLinks.map(l => (l.getAttribute('href') || '').slice(1)).filter(Boolean);
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+    const aio = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(!en.isIntersecting) return;
+        const id = en.target.id;
+        tocLinks.forEach(l=>{
+          const on = (l.getAttribute('href') === '#' + id);
+          l.style.borderColor = on ? 'rgba(139,213,255,.35)' : 'transparent';
+          l.style.color = on ? 'var(--text)' : 'var(--muted)';
+          l.style.background = on ? 'rgba(255,255,255,.08)' : 'transparent';
+        });
+      });
+    }, {threshold: .35, rootMargin: '-20% 0px -60% 0px'});
+    sections.forEach(s=>aio.observe(s));
+
+    // Parallax blobs
+    const blobs = [
+      document.querySelector('.b1'),
+      document.querySelector('.b2'),
+      document.querySelector('.b3')
+    ].filter(Boolean);
+
+    let lastY = 0;
+    window.addEventListener('scroll', ()=>{
+      lastY = window.scrollY || 0;
+    }, {passive:true});
+
+    const tick = ()=>{
+      const y = lastY;
+      blobs.forEach((b,i)=>{
+        const s = (i+1) * 0.025;
+        b.style.transform = `translate3d(${Math.sin((y/180)+i)*12}px, ${y*s}px, 0)`;
+      });
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    // Subtle tilt on cards
+    const tiltCards = document.querySelectorAll('.card');
+    tiltCards.forEach(card=>{
+      card.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;
+        const py = (e.clientY - r.top) / r.height;
+        const rx = (py - 0.5) * -2.2;
+        const ry = (px - 0.5) *  2.2;
+        card.style.transform = `translateY(-2px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      });
+      card.addEventListener('mouseleave', ()=>{
+        card.style.transform = '';
+      });
+    });
+
+  
+    // Opening animation
+    document.documentElement.classList.add('boot');
+    window.addEventListener('load', ()=> {
+      // remove boot class after animation to avoid future reflow issues
+      setTimeout(()=>document.documentElement.classList.remove('boot'), 900);
+    });
+
+    // Copy to clipboard + toast
+    const toast = document.getElementById('toast');
+    let toastT = null;
+    const showToast = (msg)=>{
+      if(!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('on');
+      clearTimeout(toastT);
+      toastT = setTimeout(()=>toast.classList.remove('on'), 1200);
+    };
+
+    const doCopy = async (txt)=>{
+      try{
+        await navigator.clipboard.writeText(txt);
+        showToast('Copié : ' + txt);
+      }catch(e){
+        // Fallback for older browsers
+        const t = document.createElement('textarea');
+        t.value = txt;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        showToast('Copié : ' + txt);
+      }
+    };
+
+    document.querySelectorAll('button.copy[data-copy]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const txt = btn.getAttribute('data-copy') || '';
+        if(txt) doCopy(txt);
+      });
+    });
+
+  </script>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
